@@ -1,0 +1,32 @@
+.category-hero {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.category-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 22, 17, 0.68);
+}
+
+.category-hero__content {
+  position: relative;
+  color: #fff;
+}
+
+.category-hero__content h1 {
+  color: #fff;
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.category-hero__content p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  max-width: 480px;
+}

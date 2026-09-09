@@ -1,0 +1,8 @@
+.product-detail-page__related {
+  background: var(--color-bg-soft);
+}
+
+.product-detail-page__more {
+  text-align: center;
+  margin-top: 32px;
+}

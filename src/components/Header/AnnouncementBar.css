@@ -1,0 +1,72 @@
+.announcement-bar {
+  background: var(--color-ink);
+  color: #dcdcd6;
+  font-size: 12px;
+}
+
+.announcement-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 24px;
+  position: relative;
+}
+
+.announcement-bar__arrow {
+  background: none;
+  border: none;
+  color: #cfcfc8;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.announcement-bar__arrow:hover {
+  color: #fff;
+}
+
+.announcement-bar__message {
+  text-align: center;
+  letter-spacing: 0.02em;
+  min-width: 260px;
+}
+
+.announcement-bar__meta {
+  position: absolute;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.announcement-bar__phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #dcdcd6;
+}
+
+.announcement-bar__phone:hover {
+  color: #fff;
+}
+
+.announcement-bar__divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.announcement-bar__currency {
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 720px) {
+  .announcement-bar__meta {
+    display: none;
+  }
+  .announcement-bar__message {
+    min-width: 0;
+    font-size: 11px;
+  }
+}
