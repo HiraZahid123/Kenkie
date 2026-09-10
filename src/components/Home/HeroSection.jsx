@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PlayCircle } from "lucide-react";
 import "./HeroSection.css";
 
-const heroImage = "/assets/products/doorbell.png";
+const heroImage = "/assets/products/doorbell-hero.png";
 
 export default function HeroSection() {
   return (

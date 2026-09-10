@@ -37,54 +37,58 @@ export default function Header() {
       <header className="site-header">
         <AnnouncementBar />
         <div className="container site-header__row">
-          <button
-            type="button"
-            className="site-header__hamburger"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
+          <div className="site-header__side site-header__side--left">
+            <button
+              type="button"
+              className="site-header__hamburger"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu size={24} />
+            </button>
 
-          <nav className="site-header__nav site-header__nav--left">
-            {LEFT_LINKS.map((link) => (
-              <NavLink key={link.to} href={link.to} end={link.end}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+            <nav className="site-header__nav site-header__nav--left">
+              {LEFT_LINKS.map((link) => (
+                <NavLink key={link.to} href={link.to} end={link.end}>
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
+          </div>
 
           <Link href="/" className="site-header__logo">
             <img src={logo} alt="Kenkie" />
           </Link>
 
-          <nav className="site-header__nav site-header__nav--right">
-            {RIGHT_LINKS.map((link) => (
-              <NavLink
-                key={link.to}
-                href={link.to}
-                className={link.accent ? "site-header__sale-link" : undefined}
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="site-header__side site-header__side--right">
+            <nav className="site-header__nav site-header__nav--right">
+              {RIGHT_LINKS.map((link) => (
+                <NavLink
+                  key={link.to}
+                  href={link.to}
+                  className={link.accent ? "site-header__sale-link" : undefined}
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
 
-          <div className="site-header__icons">
-            <button type="button" aria-label="Search" onClick={() => setSearchOpen(true)}>
-              <Search size={19} />
-            </button>
-            <Link href="/account" aria-label="Account" className="site-header__icon-link">
-              <User size={19} />
-            </Link>
-            <Link href="/wishlist" aria-label="Wishlist" className="site-header__icon-link">
-              <Heart size={19} />
-              {wishlistIds.length > 0 && <span className="site-header__badge">{wishlistIds.length}</span>}
-            </Link>
-            <button type="button" aria-label="Cart" onClick={openCart} className="site-header__cart-btn">
-              <ShoppingBag size={19} />
-              {itemCount > 0 && <span className="site-header__badge site-header__badge--cart">{itemCount}</span>}
-            </button>
+            <div className="site-header__icons">
+              <button type="button" aria-label="Search" onClick={() => setSearchOpen(true)}>
+                <Search size={19} />
+              </button>
+              <Link href="/account" aria-label="Account" className="site-header__icon-link">
+                <User size={19} />
+              </Link>
+              <Link href="/wishlist" aria-label="Wishlist" className="site-header__icon-link">
+                <Heart size={19} />
+                {wishlistIds.length > 0 && <span className="site-header__badge">{wishlistIds.length}</span>}
+              </Link>
+              <button type="button" aria-label="Cart" onClick={openCart} className="site-header__cart-btn">
+                <ShoppingBag size={19} />
+                {itemCount > 0 && <span className="site-header__badge site-header__badge--cart">{itemCount}</span>}
+              </button>
+            </div>
           </div>
         </div>
       </header>
