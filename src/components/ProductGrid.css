@@ -4,6 +4,18 @@
   gap: 20px;
 }
 
+.product-grid > *:nth-child(4n + 2) {
+  transition-delay: 80ms;
+}
+
+.product-grid > *:nth-child(4n + 3) {
+  transition-delay: 160ms;
+}
+
+.product-grid > *:nth-child(4n + 4) {
+  transition-delay: 240ms;
+}
+
 .product-grid__empty {
   text-align: center;
   padding: 60px 20px;

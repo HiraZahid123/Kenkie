@@ -1,16 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import { getProductBySlug } from "@/data/products";
+import { useReveal } from "@/hooks/useReveal";
 import { formatPrice } from "@/utils/format";
 import "./NewArrivalFeature.css";
 
 export default function NewArrivalFeature() {
-  const product = getProductBySlug("kenkie-smart-video-doorbell-2-0");
+  const product = getProductBySlug("kenkie-ear-nose-hair-trimmer");
+  const copyReveal = useReveal();
+  const mediaReveal = useReveal({ delay: 150 });
   if (!product) return null;
 
   return (
     <section className="section new-arrival">
       <div className="container new-arrival__inner">
-        <div className="new-arrival__copy">
+        <div ref={copyReveal.ref} className={`new-arrival__copy ${copyReveal.className}`}>
           <p className="new-arrival__eyebrow">New Arrival</p>
           <h2 className="new-arrival__title">{product.name}</h2>
           <p className="new-arrival__desc">{product.shortDescription}</p>
@@ -18,7 +23,11 @@ export default function NewArrivalFeature() {
             Shop Now
           </Link>
         </div>
-        <div className="new-arrival__media">
+        <div
+          ref={mediaReveal.ref}
+          className={`new-arrival__media ${mediaReveal.className}`}
+          style={mediaReveal.style}
+        >
           <img src={product.image} alt={product.name} />
           <div className="new-arrival__price-tag">
             <span>{formatPrice(product.price)}</span>
