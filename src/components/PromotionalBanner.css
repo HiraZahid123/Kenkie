@@ -37,6 +37,26 @@
   font-size: 34px;
   text-transform: uppercase;
   margin-bottom: 8px;
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.promo-banner__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 3px;
+  background: var(--brand-green);
+  border-radius: 2px;
+}
+
+.promo-banner .btn:hover {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #05170e;
 }
 
 @media (max-width: 700px) {

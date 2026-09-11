@@ -40,6 +40,7 @@ export default function Testimonials() {
   return (
     <section className="section testimonials">
       <div className="container">
+        <span className="eyebrow-badge eyebrow-badge--center">Loved By Customers</span>
         <h2 className="section-heading">What Our Customers Say</h2>
         <div className="testimonials__grid">
           <div className="testimonials__list">

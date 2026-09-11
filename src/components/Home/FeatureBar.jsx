@@ -15,7 +15,9 @@ function FeatureItem({ icon: Icon, title, desc, index }) {
   const { ref, className, style } = useReveal({ delay: index * 80 });
   return (
     <div ref={ref} className={`feature-bar__item ${className}`} style={style}>
-      <Icon size={26} strokeWidth={1.5} />
+      <span className="feature-bar__icon">
+        <Icon size={22} strokeWidth={2} />
+      </span>
       <div>
         <p className="feature-bar__title">{title}</p>
         <p className="feature-bar__desc">{desc}</p>

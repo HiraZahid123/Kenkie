@@ -17,6 +17,25 @@
   justify-content: center;
 }
 
+.feature-bar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brand-green);
+  color: var(--brand-green);
+  background: rgba(34, 197, 94, 0.06);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.feature-bar__item:hover .feature-bar__icon {
+  background: var(--brand-green);
+  color: #05170e;
+}
+
 .feature-bar__title {
   font-size: 14px;
   font-weight: 700;

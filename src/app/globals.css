@@ -16,6 +16,12 @@
   --font-body: "Inter", "Segoe UI", sans-serif;
   --header-height: 128px;
   --container-width: 1280px;
+
+  /* Hero-matched brand accent, used across sections for eyebrow tags,
+     highlighted words, icon rings and primary CTAs. */
+  --brand-green: #22c55e;
+  --brand-green-light: #4ade80;
+  --brand-dark: #01130b;
 }
 
 * {
@@ -100,11 +106,38 @@ button {
   text-transform: uppercase;
 }
 
+.accent {
+  color: var(--brand-green);
+}
+
 .section-subheading {
   text-align: center;
   color: var(--color-text-muted);
   font-size: 15px;
   margin-bottom: 40px;
+}
+
+/* Small pill tag used above section headings, matching the hero's
+   "Powerful · Portable · Versatile" badge. */
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.eyebrow-badge--center {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 14px;
 }
 
 .btn {
@@ -170,6 +203,22 @@ button {
 
 .btn-green:hover {
   background: var(--color-forest);
+}
+
+.btn-brand {
+  background: var(--brand-green);
+  color: #05170e;
+  border-color: var(--brand-green);
+}
+
+.btn-brand:hover {
+  background: var(--brand-green-light);
+  border-color: var(--brand-green-light);
+}
+
+.btn-pill {
+  border-radius: 999px;
+  padding: 14px 26px;
 }
 
 .btn-block {

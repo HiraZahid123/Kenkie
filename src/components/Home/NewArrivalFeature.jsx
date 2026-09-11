@@ -16,10 +16,10 @@ export default function NewArrivalFeature() {
     <section className="section new-arrival">
       <div className="container new-arrival__inner">
         <div ref={copyReveal.ref} className={`new-arrival__copy ${copyReveal.className}`}>
-          <p className="new-arrival__eyebrow">New Arrival</p>
+          <span className="eyebrow-badge">New Arrival</span>
           <h2 className="new-arrival__title">{product.name}</h2>
           <p className="new-arrival__desc">{product.shortDescription}</p>
-          <Link href={`/product/${product.slug}`} className="btn btn-primary">
+          <Link href={`/product/${product.slug}`} className="btn btn-brand btn-pill">
             Shop Now
           </Link>
         </div>

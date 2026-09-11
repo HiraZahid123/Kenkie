@@ -58,12 +58,17 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(20, 32, 26, 0.55);
-  border: 2px solid #fff;
+  background: rgba(1, 19, 11, 0.6);
+  border: 2px solid var(--brand-green-light);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+}
+
+.shop-story__card:hover .shop-story__play {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
 }
 
 .shop-story__duration {

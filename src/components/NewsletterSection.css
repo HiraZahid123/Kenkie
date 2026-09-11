@@ -1,7 +1,35 @@
 .newsletter {
+  position: relative;
   background: var(--color-forest);
   color: #fff;
   padding: 48px 0;
+  overflow: hidden;
+}
+
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.newsletter__inner {
+  position: relative;
+}
+
+.newsletter .btn-green {
+  background: var(--brand-green);
+  color: #05170e;
+  border-color: var(--brand-green);
+}
+
+.newsletter .btn-green:hover {
+  background: var(--brand-green-light);
+  border-color: var(--brand-green-light);
 }
 
 .newsletter__inner {

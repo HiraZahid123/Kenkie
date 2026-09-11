@@ -9,13 +9,8 @@
   gap: 48px;
 }
 
-.new-arrival__eyebrow {
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-sale);
-  margin-bottom: 10px;
+.new-arrival__copy .eyebrow-badge {
+  margin-bottom: 14px;
 }
 
 .new-arrival__title {
@@ -51,6 +46,7 @@
   background: #fff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+  border-bottom: 3px solid var(--brand-green);
   padding: 12px 18px;
   display: flex;
   align-items: center;
@@ -68,8 +64,8 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-forest);
-  border-bottom: 1px solid var(--color-forest);
+  color: var(--brand-green);
+  border-bottom: 1px solid var(--brand-green);
 }
 
 @media (max-width: 900px) {

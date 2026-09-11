@@ -78,6 +78,7 @@ export default function ShopTheStory() {
   return (
     <section className="section shop-story">
       <div className="container">
+        <span className="eyebrow-badge eyebrow-badge--center">Watch &amp; Learn</span>
         <h2 className="section-heading">Shop The Story</h2>
         <p className="section-subheading">See our latest gadgets and home essentials in action.</p>
         <div className="shop-story__grid">

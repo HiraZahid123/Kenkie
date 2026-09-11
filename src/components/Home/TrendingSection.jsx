@@ -26,7 +26,9 @@ export default function TrendingSection() {
       <div className="container">
         <div className="trending__header">
           <div>
-            <h2 className="trending__heading">Trending Now</h2>
+            <h2 className="trending__heading">
+              Trending <span className="accent">Now</span>
+            </h2>
             <p className="trending__subheading">
               Hand-picked gadgets and home essentials our customers love.
             </p>

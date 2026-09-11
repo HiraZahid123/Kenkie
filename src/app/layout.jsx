@@ -4,6 +4,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 import NewsletterSection from "@/components/NewsletterSection";
 import CartDrawer from "@/components/CartDrawer";
+import IntroAnimation from "@/components/IntroAnimation";
 
 export const metadata = {
   title: "KENKIE | Home of the Future Gadgets",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <IntroAnimation />
         <Providers>
           <Header />
           <main className="site-main">{children}</main>

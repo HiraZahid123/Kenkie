@@ -24,6 +24,7 @@ export default function CategorySection() {
   return (
     <section className="category-section">
       <div className="container">
+        <span className="eyebrow-badge eyebrow-badge--center">Shop By Category</span>
         <h2 className="section-heading">Popular Categories</h2>
         <p className="section-subheading">Shop the pieces our customers reach for again and again.</p>
       </div>

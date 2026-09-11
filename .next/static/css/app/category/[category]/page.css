@@ -66,6 +66,7 @@
 
 .product-card:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  border-color: var(--brand-green);
   transform: translateY(-4px);
 }
 
@@ -103,7 +104,8 @@
 }
 
 .product-card__badge--new {
-  background: var(--color-ink);
+  background: var(--brand-green);
+  color: #05170e;
 }
 
 .product-card__badge--sale {
@@ -197,10 +199,16 @@
   font-size: 12px;
 }
 
+.product-card__add:not(:disabled):not(.is-added):hover {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #05170e;
+}
+
 .product-card__add.is-added {
-  background: var(--color-forest);
-  color: #fff;
-  border-color: var(--color-forest);
+  background: var(--brand-green);
+  color: #05170e;
+  border-color: var(--brand-green);
 }
 
 /*!****************************************************************************************************************************************************************************************************************************************************************************!*\

@@ -19,6 +19,12 @@
   --font-body: "Inter", "Segoe UI", sans-serif;
   --header-height: 128px;
   --container-width: 1280px;
+
+  /* Hero-matched brand accent, used across sections for eyebrow tags,
+     highlighted words, icon rings and primary CTAs. */
+  --brand-green: #22c55e;
+  --brand-green-light: #4ade80;
+  --brand-dark: #01130b;
 }
 
 * {
@@ -103,11 +109,39 @@ button {
   text-transform: uppercase;
 }
 
+.accent {
+  color: var(--brand-green);
+}
+
 .section-subheading {
   text-align: center;
   color: var(--color-text-muted);
   font-size: 15px;
   margin-bottom: 40px;
+}
+
+/* Small pill tag used above section headings, matching the hero's
+   "Powerful · Portable · Versatile" badge. */
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.eyebrow-badge--center {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto 14px;
 }
 
 .btn {
@@ -173,6 +207,22 @@ button {
 
 .btn-green:hover {
   background: var(--color-forest);
+}
+
+.btn-brand {
+  background: var(--brand-green);
+  color: #05170e;
+  border-color: var(--brand-green);
+}
+
+.btn-brand:hover {
+  background: var(--brand-green-light);
+  border-color: var(--brand-green-light);
+}
+
+.btn-pill {
+  border-radius: 999px;
+  padding: 14px 26px;
 }
 
 .btn-block {
@@ -1033,13 +1083,179 @@ button {
   }
 }
 
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/IntroAnimation.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 140% at 50% 40%, #0c3524 0%, #03271a 45%, #01130b 85%);
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro--exiting {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro--exiting .intro__logo {
+  animation: intro-logo-out 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.intro--exiting .intro__bar {
+  animation: intro-bar-out 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.intro--exiting .intro__glow {
+  animation: intro-glow-out 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.intro__glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.35), transparent 70%);
+  opacity: 0;
+  animation: intro-glow-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro__logo {
+  position: relative;
+  width: min(220px, 46vw);
+  height: auto;
+  opacity: 0;
+  transform: translateY(34px) scale(0.94);
+  animation: intro-logo-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro__bar {
+  position: relative;
+  margin-top: 18px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, #4ade80, transparent);
+  opacity: 0;
+  animation: intro-bar-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+@keyframes intro-logo-in {
+  0% {
+    opacity: 0;
+    transform: translateY(34px) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes intro-glow-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-bar-in {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    width: 140px;
+    opacity: 1;
+  }
+}
+
+@keyframes intro-logo-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-46px) scale(1.04);
+  }
+}
+
+@keyframes intro-bar-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-46px);
+  }
+}
+
+@keyframes intro-glow-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.94);
+  }
+}
+
+@media (max-width: 480px) {
+  .intro__glow {
+    width: 280px;
+    height: 280px;
+  }
+}
+
 /*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/NewsletterSection.css ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************/
 .newsletter {
+  position: relative;
   background: var(--color-forest);
   color: #fff;
   padding: 48px 0;
+  overflow: hidden;
+}
+
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.newsletter__inner {
+  position: relative;
+}
+
+.newsletter .btn-green {
+  background: var(--brand-green);
+  color: #05170e;
+  border-color: var(--brand-green);
+}
+
+.newsletter .btn-green:hover {
+  background: var(--brand-green-light);
+  border-color: var(--brand-green-light);
 }
 
 .newsletter__inner {
