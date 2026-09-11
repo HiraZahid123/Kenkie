@@ -1,1 +1,166 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/category/[category]",
+      "regex": "^/category/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory"
+      },
+      "namedRegex": "^/category/(?<nxtPcategory>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/product/[id]",
+      "regex": "^/product/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/product/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/account",
+      "regex": "^/account(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account(?:/)?$"
+    },
+    {
+      "page": "/account/address",
+      "regex": "^/account/address(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account/address(?:/)?$"
+    },
+    {
+      "page": "/account/orders",
+      "regex": "^/account/orders(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account/orders(?:/)?$"
+    },
+    {
+      "page": "/cart",
+      "regex": "^/cart(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cart(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/cookie-policy",
+      "regex": "^/cookie\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cookie\\-policy(?:/)?$"
+    },
+    {
+      "page": "/delivery-info",
+      "regex": "^/delivery\\-info(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/delivery\\-info(?:/)?$"
+    },
+    {
+      "page": "/faqs",
+      "regex": "^/faqs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faqs(?:/)?$"
+    },
+    {
+      "page": "/privacy-policy",
+      "regex": "^/privacy\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy\\-policy(?:/)?$"
+    },
+    {
+      "page": "/returns",
+      "regex": "^/returns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/returns(?:/)?$"
+    },
+    {
+      "page": "/search",
+      "regex": "^/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/search(?:/)?$"
+    },
+    {
+      "page": "/shop",
+      "regex": "^/shop(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/shop(?:/)?$"
+    },
+    {
+      "page": "/shop-the-story",
+      "regex": "^/shop\\-the\\-story(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/shop\\-the\\-story(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    },
+    {
+      "page": "/track-order",
+      "regex": "^/track\\-order(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/track\\-order(?:/)?$"
+    },
+    {
+      "page": "/wishlist",
+      "regex": "^/wishlist(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/wishlist(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

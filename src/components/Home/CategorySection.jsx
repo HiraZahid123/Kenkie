@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { categories } from "@/data/categories";
 import { useReveal } from "@/hooks/useReveal";
 import "./CategorySection.css";
@@ -14,28 +15,33 @@ function CategoryCard({ cat, index }) {
       className={`category-card ${className}`}
       style={style}
     >
-      <img src={cat.image} alt={cat.name} />
-      <span className="category-card__name">{cat.name}</span>
+      <div className="category-card__media">
+        <img src={cat.image} alt={cat.name} />
+      </div>
+      <div className="category-card__body">
+        <div className="category-card__text">
+          <span className="category-card__name">{cat.name}</span>
+          <span className="category-card__desc">{cat.description}</span>
+        </div>
+        <span className="category-card__arrow">
+          <ArrowRight size={16} />
+        </span>
+      </div>
     </Link>
   );
 }
 
 export default function CategorySection() {
   return (
-    <section className="category-section">
+    <section className="section category-section">
       <div className="container">
         <span className="eyebrow-badge eyebrow-badge--center">Shop By Category</span>
         <h2 className="section-heading">Popular Categories</h2>
         <p className="section-subheading">Shop the pieces our customers reach for again and again.</p>
-      </div>
-      <div className="category-section__band">
-        <div className="container category-section__band-inner">
-          <span className="category-section__wordmark">Kenkie</span>
-          <div className="category-grid">
-            {categories.map((cat, index) => (
-              <CategoryCard key={cat.slug} cat={cat} index={index} />
-            ))}
-          </div>
+        <div className="category-grid">
+          {categories.map((cat, index) => (
+            <CategoryCard key={cat.slug} cat={cat} index={index} />
+          ))}
         </div>
       </div>
     </section>

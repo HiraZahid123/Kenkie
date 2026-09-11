@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import "./ShopTheStory.css";
 
@@ -30,51 +30,69 @@ const STORIES = [
   },
 ];
 
-function StoryCard({ story, index, isPlaying, onPlay }) {
-  const { ref, className, style } = useReveal({ delay: index * 100 });
+function StoryCard({ story, index }) {
+  const { ref: revealRef, className, style } = useReveal({ delay: index * 100 });
+  const cardRef = useRef(null);
   const videoRef = useRef(null);
+  const [muted, setMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const card = cardRef.current;
+    if (!video || !card) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().then(() => setIsPlaying(true)).catch(() => {});
+        } else {
+          video.pause();
+          setIsPlaying(false);
+        }
+      },
+      { threshold: 0.55 }
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
+
+  function setRefs(node) {
+    cardRef.current = node;
+    revealRef.current = node;
+  }
 
   return (
-    <button
-      ref={ref}
-      type="button"
-      className={`shop-story__card ${className} ${isPlaying ? "is-playing" : ""}`}
-      style={style}
-      onClick={() => {
-        if (!isPlaying) onPlay(index);
-      }}
-      aria-label={isPlaying ? story.title : `Play video: ${story.title}`}
-    >
-      {isPlaying ? (
-        <video
-          ref={videoRef}
-          className="shop-story__video"
-          src={story.video}
-          poster={story.image}
-          autoPlay
-          muted
-          loop
-          controls
-          playsInline
-          onClick={(e) => e.stopPropagation()}
-        />
-      ) : (
-        <>
-          <img src={story.image} alt={story.title} />
-          <span className="shop-story__play">
-            <Play size={22} fill="#fff" />
-          </span>
-          <span className="shop-story__duration">{story.duration}</span>
-          <span className="shop-story__title">{story.title}</span>
-        </>
-      )}
-    </button>
+    <div ref={setRefs} className={`shop-story__card ${className}`} style={style}>
+      <video
+        ref={videoRef}
+        className="shop-story__video"
+        src={story.video}
+        poster={story.image}
+        muted={muted}
+        loop
+        playsInline
+        preload="metadata"
+      />
+      <span className={`shop-story__status ${isPlaying ? "is-live" : ""}`}>
+        <i />
+        {isPlaying ? "Playing" : story.duration}
+      </span>
+      <button
+        type="button"
+        className="shop-story__mute"
+        onClick={() => setMuted((m) => !m)}
+        aria-label={muted ? "Unmute video" : "Mute video"}
+      >
+        {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+      </button>
+      <span className="shop-story__title">{story.title}</span>
+    </div>
   );
 }
 
 export default function ShopTheStory() {
-  const [playingIndex, setPlayingIndex] = useState(null);
-
   return (
     <section className="section shop-story">
       <div className="container">
@@ -83,13 +101,7 @@ export default function ShopTheStory() {
         <p className="section-subheading">See our latest gadgets and home essentials in action.</p>
         <div className="shop-story__grid">
           {STORIES.map((story, index) => (
-            <StoryCard
-              story={story}
-              index={index}
-              key={story.title}
-              isPlaying={playingIndex === index}
-              onPlay={setPlayingIndex}
-            />
+            <StoryCard story={story} index={index} key={story.title} />
           ))}
         </div>
       </div>

@@ -20,7 +20,9 @@ export default async function CategoryPage({ params }) {
       <Breadcrumbs trail={[{ label: "Shop", to: "/shop" }, { label: categoryData.name }]} />
       <section className="category-hero" style={{ backgroundImage: `url(${categoryData.image})` }}>
         <div className="category-hero__overlay" />
+        <span className="category-hero__glow" aria-hidden="true" />
         <div className="container category-hero__content">
+          <span className="eyebrow-badge">Featured Collection</span>
           <h1>{categoryData.name}</h1>
           <p>{categoryData.description}</p>
         </div>

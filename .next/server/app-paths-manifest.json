@@ -1,5 +1,22 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/account/orders/page": "app/account/orders/page.js",
+  "/account/address/page": "app/account/address/page.js",
+  "/cart/page": "app/cart/page.js",
   "/category/[category]/page": "app/category/[category]/page.js",
-  "/shop/page": "app/shop/page.js"
+  "/account/page": "app/account/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/cookie-policy/page": "app/cookie-policy/page.js",
+  "/page": "app/page.js",
+  "/faqs/page": "app/faqs/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/product/[id]/page": "app/product/[id]/page.js",
+  "/search/page": "app/search/page.js",
+  "/delivery-info/page": "app/delivery-info/page.js",
+  "/returns/page": "app/returns/page.js",
+  "/shop-the-story/page": "app/shop-the-story/page.js",
+  "/shop/page": "app/shop/page.js",
+  "/track-order/page": "app/track-order/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/wishlist/page": "app/wishlist/page.js"
 }
